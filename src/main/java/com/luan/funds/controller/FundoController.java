@@ -4,10 +4,11 @@ import com.luan.funds.dto.FundoDTO;
 import com.luan.funds.model.Fundo;
 import com.luan.funds.repository.FundoRepository;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,8 +22,8 @@ public class FundoController {
     }
 
     @GetMapping
-    public List<Fundo> listar(){
-        return fundoRepository.findAll();
+    public Page<Fundo> listar(Pageable pageable){
+        return fundoRepository.findAll(pageable);
     }
 
     @PostMapping
