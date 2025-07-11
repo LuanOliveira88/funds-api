@@ -10,14 +10,17 @@ API RESTful para gestão de fundos de investimento, desenvolvida em Java com Spr
 - Lombok
 - Spring Data JPA
 - Spring Boot DevTools
+- Springdoc OpenAPI (Swagger)
 
 ## Funcionalidades
 
 - CRUD completo para fundos de investimento
 - Listar todos os fundos
 - Adicionar novos fundos
-- (Futuro) Atualizar fundos existentes
-- (Futuro) Deletar fundos
+- Atualizar fundos existentes
+- Deletar fundos
+- Documentação automática com Swagger UI
+- Paginação e ordenação de resultados
 
 ## Como rodar o projeto
 
@@ -34,21 +37,40 @@ cd funds-api
 mvn clean spring-boot:run
 ```
 
-3. Acesse a API:
+3. Acesse no navegador ou via Postman:
+   - Swagger UI: http://localhost:8080/swagger-ui.html
+   - H2 Console: http://localhost:8080/h2-console (usuário:admin, senha em branco)
 
-- Endpoint para listar fundos: ``GET http://localhost:8080/fundos``
-- Endpoint para adicionar fundos: ``POST http://localhost:8080/fundos``
+## Endpoints principais
+
+| Método | Rota             | Descrição                |
+|--------|------------------|--------------------------|
+| GET    | `/fundos`        | Lista todos os fundos    |
+| GET    | `/fundos/{id}`   | Retorna fundo por ID     |
+| POST   | `/fundos`        | Cria um novo fundo       |
+| PUT    | `/fundos/{id}`   | Atualiza fundo existente |
+| DELETE | `/fundos/{id}`   | Remove fundo por ID      |
+
 
 ## Estrutura do Projeto
+
 
 ```bash
 funds-api/
 ├── src/
 │   ├── main/
 │   │   ├── java/com/luan/funds/
-│   │   │   ├── model/
-│   │   │   ├── repository/
 │   │   │   ├── controller/
+│   │   │   └── FundoController.java
+│   │   │   ├── dto/
+│   │   │   └── FundoDTO.java
+│   │   │   ├── model/
+│   │   │   └── Fundo.java
+│   │   │   ├── repository/
+│   │   │   └── FundoRepository.java
+│   │   │   ├── config/ 
+│   │   │   ├── DataLoader.java
+│   │   │   └── SwaggerConfig.java
 │   │   │   └── FundsApiApplication.java
 │   │   └── resources/
 │   │       └── application.properties
@@ -56,11 +78,13 @@ funds-api/
 └── README.md
 ```
 
+
 ## Observações
 
 Utiliza banco H2 em memória, ideal para testes e desenvolvimento
 Futuramente poderá ser configurado para bancos relacionais em produção
 
 ## Contribuição
+
 Pull requests são bem-vindos! Para mudanças maiores, abra uma issue primeiro para discutirmos.
 
