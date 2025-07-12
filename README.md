@@ -61,16 +61,16 @@ funds-api/
 │   ├── main/
 │   │   ├── java/com/luan/funds/
 │   │   │   ├── controller/
-│   │   │   └── FundoController.java
+│   │   │   │   └── FundoController.java
 │   │   │   ├── dto/
-│   │   │   └── FundoDTO.java
+│   │   │   │   └── FundoDTO.java
 │   │   │   ├── model/
-│   │   │   └── Fundo.java
+│   │   │   │   └── Fundo.java
 │   │   │   ├── repository/
-│   │   │   └── FundoRepository.java
+│   │   │   │   └── FundoRepository.java
 │   │   │   ├── config/ 
-│   │   │   ├── DataLoader.java
-│   │   │   └── SwaggerConfig.java
+│   │   │   │   ├── DataLoader.java
+│   │   │   │   └── SwaggerConfig.java
 │   │   │   └── FundsApiApplication.java
 │   │   └── resources/
 │   │       └── application.properties
@@ -78,6 +78,15 @@ funds-api/
 └── README.md
 ```
 
+## Exemplos
+
+### H2 Console
+![H2 Console Login](docs/img/h2-console-login.png)
+![Tabela Fundo](docs/img/h2-fundos-listados.png)
+
+## Postman
+![POST Fundo](docs/img/post-fundos.png)
+![GET Fundo](docs/img/get-fundos.png)
 
 ## Observações
 
